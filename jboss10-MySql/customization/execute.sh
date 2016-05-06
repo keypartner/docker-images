@@ -58,7 +58,7 @@ else
   $JBOSS_CLI -c "/host=*:shutdown"
 fi
 
-cp /opt/jboss/wildfly/customization/keyweb.war $JBOSS_HOME/$JBOSS_MODE/deployments/keyweb.war
+cp /opt/jboss/wildfly/customization/keyweb*.war $JBOSS_HOME/$JBOSS_MODE/deployments/keyweb.war
 
 echo "=> Restarting WildFly"
 $JBOSS_HOME/bin/$JBOSS_MODE.sh -b 0.0.0.0 -bmanagement 0.0.0.0 -c $JBOSS_CONFIG
