@@ -1,6 +1,11 @@
 # Web application example with Wildfly 10 and MySql containers  
 
-## Run MySQL containerwith VOLUMES (specifies the volume to you more comfortable)
+## Build images [MySql] (https://github.com/keypartner/docker-images/blob/master/MySQL/Dockerfile)
+```
+docker build -t repo/mysqlimg:latest .
+```
+
+## Run MySQL container with VOLUMES (specifies the volume to you more comfortable) from previous images
 ```
 docker run \
 --name mysqldbVol \
@@ -10,7 +15,7 @@ docker run \
 -e MYSQL_DATABASE=sample \
 -e MYSQL_ROOT_PASSWORD=supersecret \
 -p 3306:3306 \
--d mysql
+-d repo/mysqlimg
 ```
 
 ## Create mysql tables only the first time
