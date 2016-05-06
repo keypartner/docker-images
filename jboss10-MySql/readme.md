@@ -1,6 +1,6 @@
 # Web application example with Wildfly 10 and MySql containers  
 
-## Run container MySQL with VOLUMES (specifies the volume to you more comfortable)
+## Run MySQL containerwith VOLUMES (specifies the volume to you more comfortable)
 ```
 docker run \
 --name mysqldbVol \
@@ -25,7 +25,7 @@ PRIMARY KEY (ID)
 ) ;
 ```
 
-## Build images wildfly 10 with [dockerfile](https://github.com/keypartner/docker-images/blob/master/jboss10-MySql/Dockerfile)
+## Build wildfly images with [dockerfile](https://github.com/keypartner/docker-images/blob/master/jboss10-MySql/Dockerfile)
 ```
 docker build --tag jboss-dsmysql:latest .
 ```
