@@ -32,12 +32,12 @@ PRIMARY KEY (ID)
 
 ## Build wildfly images with [dockerfile](https://github.com/keypartner/docker-images/blob/master/jboss10-MySql/Dockerfile)
 ```
-docker build --tag jboss-dsmysql:latest .
+docker build --tag repo/jboss-dsmysql:latest .
 ```
 
 ## Run WildFly container with link to mysqldbvol
 ```
-docker run -d --link mysqldbVol:db -p 8080:8080 -p 9990:9990 --name jbossmysql jboss-dsmysql
+docker run -d --link mysqldbVol:db -p 8080:8080 -p 9990:9990 --name jbossmysql repo/jboss-dsmysql
 ```
 
 ## Test with ip of your linux machine
