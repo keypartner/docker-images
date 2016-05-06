@@ -1,0 +1,33 @@
+version: '2'
+services:
+  mysqldb-comp:
+    build: ../MySQL/
+    environment:
+      MYSQL_DATABASE: sample
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: mysql
+      MYSQL_ROOT_PASSWORD: supersecret
+    ports:
+      - 3306:3306
+    volumes:
+      - /home/vagrant/volumes/mysqlvolume:/var/lib/mysql
+  jboss-dsmysql-comp:
+    build: ../jboss10-MySql/ 
+    environment:
+      DB_ENV_MYSQL_DATABASE: sample
+      DB_ENV_MYSQL_USER: mysql
+      DB_ENV_MYSQL_PASSWORD: mysql
+      DB_PORT_3306_TCP_PORT: 3306
+      DB_PORT_3306_TCP_ADDR: mysqldb-comp
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysqldb-comp
+  lb:
+    image: dockercloud/haproxy
+    links:
+      - jboss-dsmysql-comp
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 80:80
