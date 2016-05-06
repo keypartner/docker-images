@@ -15,3 +15,9 @@ docker-compose up -d
 ```
 docker-compose logs -f
 ```
+
+## Stop docker compose
+```
+ docker-compose stop
+```
+
