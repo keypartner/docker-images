@@ -44,7 +44,7 @@ module add --name=com.mysql --resources=/opt/jboss/wildfly/customization/mysql-c
 /subsystem=datasources/jdbc-driver=mysql:add(driver-name=mysql,driver-module-name=com.mysql,driver-xa-datasource-class-name=com.mysql.jdbc.jdbc2.optional.MysqlXADataSource)
 
 # Add the datasource
-data-source add --name=mysqlDS --driver-name=mysql --jndi-name=java:jboss/datasources/ExampleMySQLDS --connection-url=jdbc:mysql://$DB_PORT_3306_TCP_ADDR:$DB_PORT_3306_TCP_PORT/$DB_ENV_MYSQL_DATABASE?useUnicode=true&amp;characterEncoding=UTF-8 --user-name=$DB_ENV_MYSQL_USER --password=$DB_ENV_MYSQL_PASSWORD --use-ccm=false --max-pool-size=25 --blocking-timeout-wait-millis=5000 --enabled=true
+data-source add --name=mysqlDS --driver-name=mysql --jndi-name=java:jboss/datasources/MySQLDS --connection-url=jdbc:mysql://$DB_PORT_3306_TCP_ADDR:$DB_PORT_3306_TCP_PORT/$DB_ENV_MYSQL_DATABASE?useUnicode=true&amp;characterEncoding=UTF-8 --user-name=$DB_ENV_MYSQL_USER --password=$DB_ENV_MYSQL_PASSWORD --use-ccm=false --max-pool-size=25 --blocking-timeout-wait-millis=5000 --enabled=true
 
 # Execute the batch
 run-batch
